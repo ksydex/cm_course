@@ -33,7 +33,7 @@ namespace Character
         private void SpawnItem()
         {
             var position = Character.transform.position;
-            var toSpawnAt = new Vector3(1, 1, 0);
+            var toSpawnAt = new Vector3(position.x, position.y + 3, 0);
             Instantiate(prefabToSpawn, toSpawnAt, Quaternion.identity);
         }
         
