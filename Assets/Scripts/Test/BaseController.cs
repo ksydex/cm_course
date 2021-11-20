@@ -23,6 +23,6 @@ namespace Test
             transform.Translate(sumVec * Time.deltaTime, Space.World);
         }
 
-        public virtual float speed { get; } = 3.0f;
+        public float speed = 3.0f;
     }
 }

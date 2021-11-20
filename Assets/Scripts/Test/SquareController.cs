@@ -4,55 +4,61 @@ using System.Transactions;
 using Test;
 using UnityEngine;
 
-public class SquareController : BaseController
+public class SquareController : MonoBehaviour
 {
     // Start is called before the first frame update
 
     private Vector3 minScreenBounds;
     private Vector3 maxScreenBounds;
+    
+    public float speed = 50.0f;
 
-    public override float speed => 4.0f;
-
-    protected override void  Start()
+    protected void  Start()
     {
         const float padding = 30.0f; 
         minScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(padding, padding, 0));
         maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - padding, Screen.height - padding, 0));
-        base.Start();
+        
+        transform.position = minScreenBounds;
+
+        
+        points = new List<Vector2>
+        {
+            minScreenBounds,
+            new Vector2(minScreenBounds.x, maxScreenBounds.y),
+            maxScreenBounds,
+            new Vector2(maxScreenBounds.x, minScreenBounds.y),
+        };
     }
 
+    private List<Vector2> points;
+    private int nextPointIndex = 0;
+
     // Update is called once per frame
-    protected override void Update()
+    protected void Update()
     {
-        var currentPos = transform.position;
-        
-        
-        if (currentPos.y > maxScreenBounds.y)
+        var reachedNextPoint = new Vector2(transform.position.x, transform.position.y) == points[nextPointIndex];
+ 
+        if (reachedNextPoint)
         {
-            y = 0;
-            x = 1;
-        }
-
-        if (currentPos.x > maxScreenBounds.x)
-        {
-            y = -1;
-            x = 0;
+            nextPointIndex++;
+            if (nextPointIndex >= points.Count)
+            {
+                nextPointIndex = 0;
+            }
         }
         
-        if (currentPos.y < minScreenBounds.y)
+        transform.position = Vector3.MoveTowards(transform.position, points[nextPointIndex], speed * Time.deltaTime);
+    }
+    
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
         {
-            y = 0;
-            x = -1;
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+            GameObject.FindObjectOfType<SquareSpawnerController>().DecrementAmount();
         }
-        
-        
-        // bug is here
-        if (currentPos.x < minScreenBounds.x)
-        {
-            y = 1;
-            x = 0;
-        }
-
-        base.Update();
     }
 }
