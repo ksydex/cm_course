@@ -7,7 +7,8 @@ namespace Character
     public class CharacterEnemyReaction : MonoBehaviour
     {
         private Character Character { get; set; }
-        
+        public AudioClip onDeathAudio;
+
         private void Awake()
         {
             Character = GetComponent<Character>();
@@ -17,9 +18,17 @@ namespace Character
         {
             if (other.CompareTag("Enemy"))
             {
+                OnDeath(other);
                 // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 Destroy(Character.gameObject);
             }
+        }
+
+        public void OnDeath(Collider2D other)
+        {
+            var audioSource = other.gameObject.AddComponent<AudioSource>();
+            audioSource.clip = onDeathAudio;
+            audioSource.Play();
         }
     }
 }

@@ -8,22 +8,22 @@ namespace Character
     [RequireComponent(typeof(Character))]
     public class CharacterPickableItemReaction : MonoBehaviour
     {
-        private Character Character { get; set; }
+        private CharacterGameMode CharacterGameMode { get; set; }
 
         public GameObject prefabToSpawn;
-        
+
         private void Awake()
         {
-            Character = GetComponent<Character>();
+            CharacterGameMode = GetComponent<CharacterGameMode>();
         }
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0) && Character.itemsCount > 0)
+            if (Input.GetMouseButtonDown(0) && CharacterGameMode.Score > 0)
             {
                 Debug.Log("Mouse");
                 SpawnItem();
-                Character.itemsCount--;
+                CharacterGameMode.Score -= 1;
             }
         }
 
@@ -32,17 +32,17 @@ namespace Character
 
         private void SpawnItem()
         {
-            var position = Character.transform.position;
+            var position = CharacterGameMode.transform.position;
             var toSpawnAt = new Vector3(position.x, position.y + 3, 0);
             Instantiate(prefabToSpawn, toSpawnAt, Quaternion.identity);
         }
-        
+
         private void PickUpItem(Component other)
         {
             if (other.GetComponent<PickableItem>())
             {
                 Destroy(other.gameObject);
-                Character.itemsCount++;
+                CharacterGameMode.Score += 1;
             }
         }
     }
