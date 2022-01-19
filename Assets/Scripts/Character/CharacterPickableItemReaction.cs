@@ -41,6 +41,7 @@ namespace Character
         {
             if (other.GetComponent<PickableItem>())
             {
+                Debug.Log("kkkkkkkkkkkk");
                 Destroy(other.gameObject);
                 CharacterGameMode.Score += 1;
             }
