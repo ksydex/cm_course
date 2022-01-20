@@ -16,7 +16,11 @@ public class StartGameUiManager : MonoBehaviour
 
     private void Awake()
     {
-        if (ResultsManager.current != null) gameObject.SetActive(false);
+        if (ResultsManager.current != null)
+        {
+            gameObject.SetActive(false);
+            hudUiManager.SetUserName(ResultsManager.current!.UserName);
+        }
     }
 
     public void OnStartClick()

@@ -23,7 +23,7 @@ namespace HUD
 
         public void Show(bool isWin, int? score = null)
         {
-            var hasNextLevel = levelSettings.NextLevelSceneName != null && isWin;
+            var hasNextLevel = levelSettings.NextLevelSceneName != "" && isWin;
             resultText.text = isWin ? "Победа!" : "Поражение";
             gameObject.SetActive(true);
 
@@ -43,7 +43,7 @@ namespace HUD
 
         public void OnRestartClick()
         {
-            var sceneName = ResultsManager.current != null && levelSettings.NextLevelSceneName != null
+            var sceneName = ResultsManager.current != null && levelSettings.NextLevelSceneName != ""
                 ? levelSettings.NextLevelSceneName
                 : "Level1";
             SceneManager.LoadScene(sceneName);
