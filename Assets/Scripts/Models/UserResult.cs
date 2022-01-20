@@ -11,8 +11,8 @@ namespace Models
             null => "Не завершено",
             false => "Поражение",
             true => "Победа"
-        };
-        
+        } + (Score == null ? "" : ", " + Score + " очков");
+
         public int? Score { get; set; }
     }
 }

@@ -26,7 +26,9 @@ namespace Character
             hudUiManager.UpdateScore(_score);
 
             if (_score == levelSettings.ScoreToWin)
-                gameOverUiManager.Show(true);
+            {
+                gameOverUiManager.Show(true, _score);
+            }
         }
     }
 }

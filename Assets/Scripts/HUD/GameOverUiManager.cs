@@ -8,6 +8,8 @@ namespace HUD
     {
         [SerializeField]
         private Text resultText;
+
+        [SerializeField] private Text tableText;
     
         // Start is called before the first frame update
         void Start()
@@ -15,10 +17,16 @@ namespace HUD
             gameObject.SetActive(false);
         }
 
-        public void Show(bool isWin)
+        public void Show(bool isWin, int? score = null)
         {
             resultText.text = isWin ? "Победа!" : "Поражение";
             gameObject.SetActive(true);
+            
+            ResultsManager.current!.Result = isWin;
+            ResultsManager.current!.Score = score;
+            
+            tableText.text = ResultsManager.instance.resultsInText;
+            ResultsManager.current = null;
         }
 
         public void OnRestartClick()
