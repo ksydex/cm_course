@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using HUD;
@@ -12,6 +13,11 @@ public class StartGameUiManager : MonoBehaviour
 
     [SerializeField] private InputField textField;
     [SerializeField] private HudUiManager hudUiManager;
+
+    private void Awake()
+    {
+        if (ResultsManager.current != null) gameObject.SetActive(false);
+    }
 
     public void OnStartClick()
     {
