@@ -155,11 +155,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f14004f4132cce45a2974e5d85cbcfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSettings: {fileID: 665559544}
+  levelSettings: {fileID: 0}
   resultText: {fileID: 348723012}
   tableText: {fileID: 585877140}
-  headingText: {fileID: 1822298535}
-  buttonText: {fileID: 1529887884}
+  headingText: {fileID: 0}
+  buttonText: {fileID: 0}
 --- !u!114 &32837227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1403,7 +1403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreToWin: 5
-  NextLevelSceneName: Level2
+  NextLevelSceneName: 
 --- !u!4 &665559545
 Transform:
   m_ObjectHideFlags: 0
@@ -3964,8 +3964,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -54}
-  m_SizeDelta: {x: 700, y: 60}
+  m_AnchoredPosition: {x: 0, y: -57}
+  m_SizeDelta: {x: 300, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1822298535
 MonoBehaviour:
