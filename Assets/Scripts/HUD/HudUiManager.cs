@@ -7,6 +7,7 @@ namespace HUD
     public class HudUiManager : MonoBehaviour
     {
         [SerializeField] private Text scoreText;
+        [SerializeField] private Text userNameText;
 
         [SerializeField] private LevelSettings levelSettings;
 
@@ -18,6 +19,11 @@ namespace HUD
         public void UpdateScore(int currentScore)
         {
             scoreText.text = $"{currentScore} / {levelSettings.ScoreToWin}";
+        }
+
+        public void SetUserName(string userName)
+        {
+            userNameText.text = userName;
         }
     }
 }
