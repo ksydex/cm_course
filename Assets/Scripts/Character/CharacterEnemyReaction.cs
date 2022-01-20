@@ -1,3 +1,4 @@
+using HUD;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,19 +8,19 @@ namespace Character
     public class CharacterEnemyReaction : MonoBehaviour
     {
         private Character Character { get; set; }
-        public AudioClip onDeathAudio;
+        [SerializeField] private AudioClip onDeathAudio;
+        [SerializeField] private GameOverUiManager gameOverUiManager;
 
         private void Awake()
         {
             Character = GetComponent<Character>();
         }
-        
+
         public void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Enemy"))
             {
                 OnDeath(other);
-                // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 Destroy(Character.gameObject);
             }
         }
@@ -29,6 +30,7 @@ namespace Character
             var audioSource = other.gameObject.AddComponent<AudioSource>();
             audioSource.clip = onDeathAudio;
             audioSource.Play();
+            gameOverUiManager.Show(false);
         }
     }
 }

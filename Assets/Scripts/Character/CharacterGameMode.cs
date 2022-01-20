@@ -7,6 +7,10 @@ namespace Character
     {
         private int _score;
 
+        [SerializeField] private LevelSettings levelSettings;
+        [SerializeField] private HudUiManager hudUiManager;
+        [SerializeField] private GameOverUiManager gameOverUiManager;
+
         public int Score
         {
             get => _score;
@@ -14,11 +18,15 @@ namespace Character
             {
                 _score = value;
                 UpdateUi();
-            } }
+            }
+        }
 
         private void UpdateUi()
         {
-            HudManager.Instance.UpdateScore(_score);
+            hudUiManager.UpdateScore(_score);
+
+            if (_score == levelSettings.ScoreToWin)
+                gameOverUiManager.Show(true);
         }
     }
 }
