@@ -25,7 +25,7 @@ namespace Character
 
         private void Update()
         {
-            if (timeLeft > 0)
+            if (timeLeft > 0 && ResultsManager.current?.Result == null)
             {
                 timeLeft -= Time.deltaTime;
                 if (timeLeft <= 0) gameOverUiManager.Show(false);
