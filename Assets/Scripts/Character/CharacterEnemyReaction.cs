@@ -10,7 +10,7 @@ namespace Character
         private Character Character { get; set; }
         [SerializeField] private AudioClip onDeathAudio;
         [SerializeField] private GameOverUiManager gameOverUiManager;
-
+        
         private void Awake()
         {
             Character = GetComponent<Character>();
