@@ -71,6 +71,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6421b3639d7a4924a41f8f5b940b283c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverUiManager: {fileID: 0}
+  onDeathAudio: {fileID: 8300000, guid: 45484bfd721ed524e97fa4617b9855f5, type: 3}
 --- !u!1 &721310084587692038
 GameObject:
   m_ObjectHideFlags: 0

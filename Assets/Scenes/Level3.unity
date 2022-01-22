@@ -15875,6 +15875,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8210921159918474813, guid: f22c1434588b0b743be20a876b3aecc0, type: 3}
+      propertyPath: onCollideAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: d4d41b15f8d53174d9b4e24a5ba90f59, type: 3}
+    - target: {fileID: 8210921159918474813, guid: f22c1434588b0b743be20a876b3aecc0, type: 3}
+      propertyPath: gameOverUiManager
+      value: 
+      objectReference: {fileID: 1707385657}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f22c1434588b0b743be20a876b3aecc0, type: 3}
 --- !u!1001 &583866542
@@ -17281,5 +17289,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8560474371382585430, guid: 7d186bff76a24664b9128582423da6e9, type: 3}
+      propertyPath: onDeathAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 45484bfd721ed524e97fa4617b9855f5, type: 3}
+    - target: {fileID: 8560474371382585430, guid: 7d186bff76a24664b9128582423da6e9, type: 3}
+      propertyPath: onCollideAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 45484bfd721ed524e97fa4617b9855f5, type: 3}
+    - target: {fileID: 8560474371382585430, guid: 7d186bff76a24664b9128582423da6e9, type: 3}
+      propertyPath: gameOverUiManager
+      value: 
+      objectReference: {fileID: 1707385657}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d186bff76a24664b9128582423da6e9, type: 3}
